@@ -10,7 +10,6 @@ package com.qa.library;
 	import javax.persistence.ManyToOne;
 
 	@Entity
-
 	public class Librarian {
 		@Id//PK
 		@GeneratedValue(strategy = GenerationType.IDENTITY) //Auto incremented
