@@ -1,5 +1,5 @@
-insert into book
-	(name, pageNum, author, shelfNum)
+insert into librarian
+	(name, pagenum, author, shelfnum)
 		values
-	('hunger games','407', 'veronica', '5');
+	('Harry Potter','300', 'JK Rowling', '5');
 		 

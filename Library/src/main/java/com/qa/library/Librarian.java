@@ -15,25 +15,49 @@ package com.qa.library;
 		@GeneratedValue(strategy = GenerationType.IDENTITY) //Auto incremented
 		private Integer id;
 		private String name;
-		private int pageNum;
+		private int pagenum;
 		private String author;
-		private int shelfNum;
+		private int shelfnum;
 		
 		
-		public Librarian(Integer id, String name, int pageNum, String author, int shelfNum) {
+		public Librarian(Integer id, String name, int pagenum, String author, int shelfnum) {
 			super();
 			this.id = id;
 			this.name = name;
-			this.pageNum = pageNum;
+			this.pagenum = pagenum;
 			this.author = author;
-			this.shelfNum = shelfNum;
+			this.shelfnum = shelfnum;
 		}
 	
 		public Librarian() {//requires this for entity to make sql page
 			super();
+		}		
+	
+		
+		public Integer getId() {
+			return id;
 		}
-		
-		
+
+		public void setId(Integer id) {
+			this.id = id;
+		}
+
+		public String getName() {
+			return name;
+		}
+
+		public void setName(String name) {
+			this.name = name;
+		}
+
+		public int getPagenum() {
+			return pagenum;
+		}
+
+		public void setPagenum(int pagenum) {
+			this.pagenum = pagenum;
+		}
+
 		public String getAuthor() {
 			return author;
 		}
@@ -42,43 +66,27 @@ package com.qa.library;
 			this.author = author;
 		}
 
-		public int getShelfNum() {
-			return shelfNum;
+		public int getShelfnum() {
+			return shelfnum;
 		}
 
-		public void setShelfNum(int shelfNum) {
-			this.shelfNum = shelfNum;
+		public void setShelfnum(int shelfnum) {
+			this.shelfnum = shelfnum;
 		}
 
-		public Integer getId() {
-			return id;
-		}
-		public void setId(Integer id) {
-			this.id = id;
-		}
-		public String getName() {
-			return name;
-		}
-		public void setName(String name) {
-			this.name = name;
-		}
-		public int getPageNum() {
-			return pageNum;
-		}
-		public void setPageNum(int pageNum) {
-			this.pageNum = pageNum;
-		}
 		
 		@Override
 		public String toString() {
-			return "Librarian [id=" + id + ", name=" + name + ", pageNum=" + pageNum + ", author=" + author
-					+ ", shelfNum=" + shelfNum + "]";
+			return "Librarian [id=" + id + ", name=" + name + ", pagenum=" + pagenum + ", author=" + author
+					+ ", shelfnum=" + shelfnum + "]";
 		}
-		
+
+
 		@Override
 		public int hashCode() {
-			return Objects.hash(author, id, name, pageNum, shelfNum);
+			return Objects.hash(author, id, name, pagenum, shelfnum);
 		}
+
 		@Override
 		public boolean equals(Object obj) {
 			if (this == obj)
@@ -89,9 +97,9 @@ package com.qa.library;
 				return false;
 			Librarian other = (Librarian) obj;
 			return Objects.equals(author, other.author) && Objects.equals(id, other.id)
-					&& Objects.equals(name, other.name) && pageNum == other.pageNum && shelfNum == other.shelfNum;
+					&& Objects.equals(name, other.name) && pagenum == other.pagenum && shelfnum == other.shelfnum;
 		}
-		
+	
 		
 
 	}

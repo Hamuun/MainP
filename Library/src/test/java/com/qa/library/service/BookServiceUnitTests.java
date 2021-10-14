@@ -26,6 +26,11 @@ public class BookServiceUnitTests {
 		private BookRepo repo;
 		
 		@Test
+		void testHello() {
+			
+		}
+		
+		@Test
 		void testUpdate() {
 			final Integer id = 1;
 			Librarian book =new Librarian(1, "Harry", 300, "blue", 5);
@@ -66,7 +71,17 @@ public class BookServiceUnitTests {
 			Mockito.verify(this.repo, Mockito.times(1)).findById(id);
 			
 		}
-		
+		@Test
+		void testgetBooksByName() {
+			final String name = "Harry";
+			final List<Librarian> books = List.of(new Librarian(1, name, 300, "Jk", 1));
+
+			Mockito.when(this.repo.findByName(name)).thenReturn(books);
+
+			assertThat(this.service.getBooksByName(name)).isEqualTo(books);
+
+			Mockito.verify(this.repo, Mockito.times(1)).findByName(name);
+		}
 		@Test
 		void testgetAllBooks() {
 			final Integer id = 1;
@@ -78,7 +93,16 @@ public class BookServiceUnitTests {
 			Mockito.verify(this.repo, Mockito.times(1)).findAll();
 			
 		}
-		
+@Test
+void testremoveBooks() {
+	final Integer id = 1;
+
+	Mockito.when(this.repo.existsById(id)).thenReturn(false);
+
+	assertThat(this.service.deleteBook(id)).isEqualTo(true);
+
+	Mockito.verify(this.repo, Mockito.times(1)).existsById(id);
+}
 			
 		}
 

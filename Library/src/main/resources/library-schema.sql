@@ -8,4 +8,3 @@ create table librarian
             shelfNum varChar(255)
 			
 		);
-			 

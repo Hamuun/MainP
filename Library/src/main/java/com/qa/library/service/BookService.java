@@ -6,6 +6,7 @@ import com.qa.library.*;
 
 public interface BookService {
 	public Librarian getBooksByIndex(Integer id);
+	public List<Librarian> getBooksByName(String name);
 
 	public List<Librarian> getAllBooks();
 

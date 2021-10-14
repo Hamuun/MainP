@@ -1,6 +1,8 @@
 package com.qa.library;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import com.qa.library.exception.BookNotFoundException;
 import com.qa.library.service.BookService;
@@ -31,7 +33,6 @@ public class BookController {
 //	private List<Librarian> book = new ArrayList<>();
 	
 	// if spring receives a GET request at /hello
-	// call vv THIS vv method
 	@GetMapping("/hello")
 	public String hello() {
 		return "Hello, people!";
@@ -47,6 +48,10 @@ public class BookController {
 	//	return this.book.get(id);
 	//return this.getBooksByIndex(id).findById(id).orElseThrow(BookNotFoundException::new);
 	}
+@GetMapping("/getName/{name}")
+	public List<Librarian> getBooksByName(@PathVariable String name) {
+	return this.service.getBooksByName(name);
+}
 @GetMapping("/getAllBooks")
 	public List<Librarian> getAllBooks() {
 		return this.service.getAllBooks();
@@ -77,17 +82,5 @@ public class BookController {
 		} else {
 			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
-//	public ResponseEntity<Librarian> deleteBook(@PathVariable Integer id) {
-	//Librarian toDelete = this.service.getBooksByIndex(id);
-	//this.service.deleteBook(id);
-	//return "deleted" + toDelete;
-//	ResponseEntity<Librarian> deleted = this.service.deleteBook(id);
-//	if (deleted) {
-//		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-//	} else {
-//		return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-//		
-
-//	return deleted;
 	}
 	}
